@@ -9,8 +9,8 @@ function App() {
 
   const handleHelloWorldButtonClick = () => {
     fetch(`https://chat-sm.netlify.app/.netlify/functions/hello`)
-    .then(console.log())
-    .catch(console.warn())
+    .then(console.log)
+    .catch(console.warn)
   }
 
   return (
