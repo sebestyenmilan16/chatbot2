@@ -12,28 +12,10 @@ export default function AiChatbot(props) {
         console.log('handleAskButtonClick question', question);
 
         // Send question to Groq
-        
-        try {
-            const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearr ${"TODO"}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    "model": "openai/gpt-oss-120b",
-                    "messages": [
-                        {
-                            "role": "user",
-                            "content": question
-                        }
-                        ]
-                })
-            })
-        }
-        catch (error) {
-            console.warn(error)            
-        }
+        const res = await fetch('https://chat-sm.netlify.app/.netlify/functions/ask', {
+            method: 'POST',
+            body: JSON.stringify({question})
+        }) 
 
     }
 
