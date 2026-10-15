@@ -1,7 +1,13 @@
 export default async function(req) {
     console.log('/.netlify/functions/hello req', req);
-    return new Response({message: 'Hello worls!'},{status: 200, statusText: 'OK'})
+    return new Response(
+        JSON.stringify({
+            message: 'Hello worls!'
+        }),
+        {status: 200, statusText: 'OK'}
+    )
 
 
 }
+
 
