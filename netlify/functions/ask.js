@@ -6,7 +6,7 @@ export default async function (req) {
     console.log(req.body);
     console.log();
     
-    question = req.headers['X-Question'] || req.headers['x-questions']
+    question = req.headers['x-question'] ?? req.headers.get('x-question')
     console.log('Question from headers: ', question);
     
 
