@@ -19,7 +19,13 @@ export default function AiChatbot(props) {
                 'X-Question': question
             },
             body: JSON.stringify({question})
-        }) 
+        })
+        
+        if (res.ok) {
+            const message = await res.json()
+            console.log('message', message);
+            
+        }
 
     }
 
