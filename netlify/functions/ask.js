@@ -27,7 +27,11 @@ export default async function (req) {
                         ]
                 })
             })
+        
+        console.log('Groq Response: ', res)
         }
+
+        
         catch (error) {
             console.warn(error)            
         }
