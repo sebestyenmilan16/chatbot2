@@ -15,7 +15,8 @@ export default function AiChatbot(props) {
         const res = await fetch('https://chat-sm.netlify.app/.netlify/functions/ask', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'X.Question': question
             },
             body: JSON.stringify({question})
         }) 
