@@ -2,10 +2,12 @@ export default async function (req) {
 
     console.log('/.netlify/functions/ask req', req);
 
-    const {question} = req.body
+    let {question} = req.body
     console.log(req.body);
     console.log();
     
+    question = req.headers['X-Question'] || req.headers['x-questions']
+    console.log('Question from headers: ', question);
     
 
     try {
