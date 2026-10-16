@@ -3,6 +3,10 @@ export default async function (req) {
     console.log('/.netlify/functions/ask req', req);
 
     const {question} = req.body
+    console.log(req.body);
+    console.log();
+    
+    
 
     try {
             const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {

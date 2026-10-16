@@ -14,6 +14,9 @@ export default function AiChatbot(props) {
         // Send question to Groq
         const res = await fetch('https://chat-sm.netlify.app/.netlify/functions/ask', {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
             body: JSON.stringify({question})
         }) 
 
