@@ -1,3 +1,5 @@
+import { json } from "express";
+
 export default async function (req) {
 
     //console.log('/.netlify/functions/ask req', req);
@@ -37,9 +39,13 @@ export default async function (req) {
         console.log('groqResObj', growResObj);
         
         const {choices=[]} = growResObj
+        console.log('choices: ', choices);
         const message = choices[0]?.message
+        console.log('message json', JSON.stringify(message))
         const {role='assistant', content=''} = message
         const answer = content
+        console.log('Answer: ', answer)
+        
 
     }
 
