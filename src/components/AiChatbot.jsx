@@ -16,7 +16,7 @@ export default function AiChatbot(props) {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X.Question': question
+                'X-Question': question
             },
             body: JSON.stringify({question})
         }) 
