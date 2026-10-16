@@ -10,7 +10,9 @@ export default async function (req) {
     
     question = req.headers['x-question'] ?? req.headers.get('x-question')
     console.log('Question from headers: ', question);
-    
+
+    let role = null;
+    let answer = null;
 
     try {
             const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
@@ -42,8 +44,10 @@ export default async function (req) {
         console.log('choices: ', choices);
         const message = choices[0]?.message
         console.log('message json', JSON.stringify(message))
-        const {role='assistant', content=''} = message
-        const answer = content
+        //const {role='assistant', content=''} = message
+        role = message?.role
+        //const answer = content
+        answer = message?.answer
         console.log('Answer: ', answer)
         
 
