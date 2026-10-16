@@ -24,7 +24,7 @@ export default function AiChatbot(props) {
         if (res.ok) {
             const message = await res.json()
             console.log('message', message);
-            
+            setAnswer(message?.answer || "Teszt válasz")
         }
 
     }
@@ -43,7 +43,9 @@ export default function AiChatbot(props) {
     return <div onKeyDown={handleKeyPress}>
         <h1>AI Chat</h1>
         <div className='conversationarea'>
-            No messages yet ... 
+            No messages yet ...
+            <p>{question}</p> 
+            <p>{answer}</p> 
         </div>
 
         <div>
