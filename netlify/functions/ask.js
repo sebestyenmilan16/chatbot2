@@ -36,6 +36,10 @@ export default async function (req) {
 
         console.log('groqResObj', growResObj);
         
+        const {choices=[]} = growResObj
+        const message = choices[0]?.message
+        const {role='assistant', content=''} = message
+        const answer = content
 
     }
 
@@ -46,7 +50,9 @@ export default async function (req) {
 
      return new Response(
         JSON.stringify({
-            message: 'Hello world!'
+            message: 'OK',
+            answer,
+            role,
         }),
         {status: 200, statusText: 'OK'}
     )
