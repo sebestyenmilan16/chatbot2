@@ -1,9 +1,9 @@
 export default async function (req) {
 
-    console.log('/.netlify/functions/ask req', req);
+    //console.log('/.netlify/functions/ask req', req);
 
     let {question} = req.body
-    console.log(req.body);
+    //console.log(req.body);
     console.log();
     
     question = req.headers['x-question'] ?? req.headers.get('x-question')
@@ -28,8 +28,16 @@ export default async function (req) {
                 })
             })
         
-        console.log('Groq Response: ', res)
-        }
+        //console.log('Groq Response: ', res)
+    
+        // TODO - parse res json
+
+        const growResObj = await res.json()
+
+        console.log('groqResObj', growResObj);
+        
+
+    }
 
         
         catch (error) {
